@@ -1,0 +1,37 @@
+.myBtn {
+    width: 300px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between
+}
+
+.content {
+    width: 50%;
+    margin: 50px auto;
+}
+
+.left {
+    margin: 3px 3px 3px 3px;
+}
+
+.mainContent {
+    width: auto;
+    height: 400px;
+    background: chocolate;
+    border: solid grey;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.quicklinks {
+    padding-left: 105px;
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    border: solid black;
+    height: 200px;
+}
