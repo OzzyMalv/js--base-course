@@ -19,7 +19,7 @@
 .mainContent {
     width: auto;
     height: 400px;
-    background: chocolate;
+    background: lightgreen;
     border: solid grey;
     margin-bottom: 10px;
     margin-top: 10px;
@@ -31,7 +31,17 @@
 
 .footer {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-around; */
     border: solid black;
     height: 200px;
+}
+
+.historyJS.history {
+    width: 30%;
+}
+
+.weather {
+    border: solid black;
+    width: 40%;
+    text-align: center;
 }

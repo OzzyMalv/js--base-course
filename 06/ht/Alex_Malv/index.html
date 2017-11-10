@@ -10,7 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./main.css">
-    <title>Document</title>
+    <title>Weather</title>
 
 </head>
 
@@ -23,19 +23,21 @@
                 <input type="radio" name="options" id="fetch1" value="Fetch" checked>
                 <label for="fetch1">Fetch</label>
 
-                <span class="quicklinks"><a href="#">About</a> | <a href="#">Main</a> | <a href="#">Author</a></span>
+                <span class="quicklinks"><a href="/About">About</a> | <a href="#">Main</a> | <a href="#">Author</a></span>
 
             </div>
             <div class="search input-prepend">
-                <button type="submit" class="btn">Search</button>
-                <input type="text" class="span2 search-query">
+                <button type="submit" class="searchBtnJS btn">Search</button>
+                <input type="text" class="searchJS span2 search-query">
             </div>
         </div>
-        <div class="mainContent">
+        <div class="mainContent" id="map">
         </div>
         <div class="footer">
-            <div class="history">History</div>
-            <div class="whether">Whether</div>
+            <div class="historyJS history">History
+                <ul class="historyUL"></ul>
+            </div>
+            <div class="weather" id="weather">Weather</div>
             <div class="fav">Favorites</div>
         </div>
     </div>
@@ -46,6 +48,7 @@
     <button class="myBtn btn btn-success">[EQ</button> -->
     <script src="http://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
     <script src="./script.js"></script>
+    <!-- <script src="./router.js"></script> -->
 </body>
 
 </html>
