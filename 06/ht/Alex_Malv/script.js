@@ -9,6 +9,7 @@ class Weather {
         this.lat = lat;
         this.lng = lng;
         this.arrCountry = [];
+        this.myMap = {};
     }
 
     init() {
@@ -17,12 +18,8 @@ class Weather {
         ymaps.ready(this.getMap.bind(this));
     }
 
-    getMap() {
-        //Создание экземпляра карты и его привязка к контейнеру с
-        // заданным id ("map").
-        myMap = new ymaps.Map('map', {
-            // При инициализации карты обязательно нужно указать
-            // её центр и коэффициент масштабирования.
+    getMap(lat, lng) {
+        this.myMap = new ymaps.Map('map', {
             center: [53.90, 27.56], // Минск
             zoom: 10
         }, {
@@ -30,10 +27,10 @@ class Weather {
         });
 
         var showCenter = () => {
-            let arrCentr = myMap.getCenter();
+            let arrCentr = this.myMap.getCenter();
             this.getWeather(arrCentr[0], arrCentr[1]);
         };
-        myMap.events.add('actionend', showCenter);
+        this.myMap.events.add('actionend', showCenter);
     }
 
     handlerEvent() {
@@ -53,7 +50,12 @@ class Weather {
                 console.log(data.results[0].geometry.location);
                 return data.results[0].geometry.location;
             })
-            .then((objLatLng) => this.getWeather(objLatLng.lat, objLatLng.lng))
+            .then((objLatLng) => {
+                this.getWeather(objLatLng.lat, objLatLng.lng);
+                this.myMap.setCenter && this.myMap.setCenter([objLatLng.lat, objLatLng.lng], 10, { //костыль
+                    duration: 2000
+                });
+            })
     }
 
     getWeather(lat, lng) {
@@ -63,7 +65,7 @@ class Weather {
                 let dataW = JSON.parse(data.body);
                 console.log(dataW);
                 let divW = document.querySelector(".weather");
-                divW.innerHTML = `${dataW.currently.temperature} F&ordm;`;
+                divW.innerHTML = `${((dataW.currently.temperature  - 32 ) * (5 / 9)).toFixed(2)} C&ordm;`; //Цельсия
                 divW.innerHTML += `<br> ${dataW.currently.summary}`;
 
             })
