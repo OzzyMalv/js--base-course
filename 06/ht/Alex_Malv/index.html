@@ -18,17 +18,18 @@
     <div class="content">
         <div class="header">
             <div class="left">
-                <input type="radio" name="options" id="xhr1" value="XHR">
+                <input type="radio" name="param" id="xhr1" value="XHR">
                 <label for="xhr1">XHR</label>
-                <input type="radio" name="options" id="fetch1" value="Fetch" checked>
+                <input type="radio" name="param" id="fetch1" value="Fetch" checked>
                 <label for="fetch1">Fetch</label>
 
-                <span class="quicklinks"><a href=#>About</a> | <a href="#">Main</a> | <a href="#">Author</a></span>
+                <span class="quicklinks"><a href=#about>About</a> | <a href="#">Main</a> | <a href="#author">Author</a></span>
 
             </div>
             <div class="search input-prepend">
-                <button type="submit" class="searchBtnJS btn">Search</button>
+                <button type="button" class="searchBtnJS btn btn-primary">Search</button>
                 <input type="text" class="searchJS span2 search-query">
+                <button class=" btn btn-warning addFavorites" type="button">Add favorites</button>
             </div>
         </div>
         <div class="mainContent" id="map">
@@ -38,7 +39,15 @@
                 <ul class="historyUL"></ul>
             </div>
             <div class="weather" id="weather">Weather</div>
-            <div class="fav">Favorites</div>
+            <div class="fav">Favorites<br>
+                <select multiple="multiple" class="favRow">
+                    <!-- <option>Minsk</option> -->
+                            <!-- <option> -->
+                </select>
+
+
+            </div>
+
         </div>
     </div>
 
